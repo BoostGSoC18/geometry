@@ -813,24 +813,6 @@ inline void sin_cos_degrees(T const& x,
 }
 
 /*!
-\brief The NaN (not a number)
-*/
-template<typename T>
-inline T NaN()
-{
-#if defined(_MSC_VER)
-    return std::numeric_limits<T>::has_quiet_NaN ?
-      std::numeric_limits<T>::quiet_NaN() :
-      (std::numeric_limits<T>::max)();
-#else
-    return std::numeric_limits<T>::has_quiet_NaN ?
-      std::numeric_limits<T>::quiet_NaN() :
-      std::numeric_limits<T>::max();
-#endif
-}
-
-
-/*!
 \brief Normalize the given values.
 */
 template<typename T>
