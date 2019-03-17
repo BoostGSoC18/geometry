@@ -829,25 +829,6 @@ inline T NaN()
 #endif
 }
 
-/*!
-\brief Round off a given angle
-*/
-template<typename T>
-inline T round_angle(T x) {
-    static const T z = 1/T(16);
-
-    if (x == 0)
-    {
-        return 0;
-    }
-
-    T y = math::abs(x);
-
-    // z - (z - y) must not be simplified to y.
-    y = y < z ? z - (z - y) : y;
-
-    return x < 0 ? -y : y;
-}
 
 /*!
 \brief Normalize the given values.
